@@ -8,8 +8,14 @@ import { render } from 'react-dom'
 import App from './components/App'
 
 import './styles.css'
+import theme from "./theme";
+
+import {ThemeProvider } from "styled-components"
 
 render(
-  <App />,
+  <ThemeProvider theme={theme}>
+  <App />
+  </ThemeProvider>,
+  
   document.querySelector('#root')
 )
