@@ -24,14 +24,18 @@ export default function App() {
       .catch(err => {
         console.log(err)
       })
-  }, [id])
+  }, [])
 
   return (
     <div className='container'>
       <h1>My friends:</h1>
       {
-        friends.map(fr => {
-          return <Friend key={fr.id} info={fr} action={openDetails} />
+        friends.map((fr, idx) => {
+          return <Friend 
+          key={fr.id} 
+          info={fr} 
+          action={openDetails} 
+          besty= {idx % 2 ===0}/>
         })
       }
       {
@@ -39,4 +43,12 @@ export default function App() {
       }
     </div>
   )
+}
+
+function evenOdd(num) {
+  if (num % 2 === 0 ) {
+    return `even`
+  }else {
+    return `odd`
+  }
 }
